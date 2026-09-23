@@ -1,8 +1,20 @@
+import HeroSection from "../components/HeroSection";
+import CategorySection from "../components/CategorySection"
+import FeaturedProducts from "../components/FeaturedProducts";
+import WhyChooseUs from "../components/WhyChooseUs";
+import Footer from "../components/Footer";
 function Home() {
   return (
     <div>
-      <h1>Welcome to Sweet House 🍰</h1>
-      <p>Fresh and delicious sweets for everyone!</p>
+      <HeroSection />
+
+      <CategorySection/>
+
+      <FeaturedProducts/>
+
+      <WhyChooseUs/>
+
+      <Footer/>
     </div>
   );
 }
