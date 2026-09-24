@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Navbar />
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
+        
       </Routes>
     </BrowserRouter>
   );
