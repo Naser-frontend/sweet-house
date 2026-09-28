@@ -1,60 +1,63 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+
 function Navbar() {
   return (
     <nav className="flex items-center justify-between bg-white px-8 py-4 shadow-sm">
-      
       {/* Logo */}
       <div>
-     <img
-        src={logo}
-        alt="Sweet House"
-        className="h-12 w-auto"
-     />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Sweet House"
+            className="h-12 w-auto"
+          />
+        </Link>
       </div>
 
-      {/* Navigation Links */}
+      {/* Navigation */}
       <div className="flex items-center gap-8">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="font-medium text-gray-700 transition hover:text-pink-500"
         >
           Home
-        </a>
+        </Link>
 
-        <a
-          href="/products"
+        <Link
+          to="/products"
           className="font-medium text-gray-700 transition hover:text-pink-500"
         >
           Products
-        </a>
+        </Link>
 
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="font-medium text-gray-700 transition hover:text-pink-500"
         >
           About
-        </a>
+        </Link>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="font-medium text-gray-700 transition hover:text-pink-500"
         >
           Contact
-        </a>
+        </Link>
 
-        <a
-          href="/cart"
+        <Link
+          to="/cart"
           className="font-medium text-gray-700 transition hover:text-pink-500"
         >
           🛒 Cart
-        </a>
+        </Link>
 
-        <a
-          href="/login"
+        <Link
+          to="/login"
           className="rounded-full bg-pink-500 px-5 py-2 font-medium text-white transition hover:bg-pink-600"
         >
           Login
-        </a>
+        </Link>
       </div>
     </nav>
   );

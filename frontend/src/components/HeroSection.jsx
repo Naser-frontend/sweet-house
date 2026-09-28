@@ -1,3 +1,4 @@
+import heroimage from "../assets/hero.jpg"
 function HeroSection() {
   return (
     <section className="bg-pink-50">
@@ -35,6 +36,11 @@ function HeroSection() {
         <div className="flex w-full justify-center md:w-1/2">
           <div className="flex h-[300px] w-full max-w-xl items-center justify-center rounded-[40px] bg-pink-100 shadow-sm sm:h-[380px] lg:h-[420px]">
             <span className="text-base font-medium text-pink-400 sm:text-lg">
+                <img
+                          src={heroimage}
+                          alt="Sweet House"
+                          className="h-[500px] w-auto"
+                        />
               Hero Image
             </span>
           </div>
