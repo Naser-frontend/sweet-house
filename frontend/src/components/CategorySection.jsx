@@ -1,77 +1,83 @@
+
+import { Link } from "react-router-dom";
+
+const categories = [
+  {
+    name: "Cakes",
+    description: "Delicious cakes for every occasion.",
+    image:
+      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    name: "Cookies",
+    description: "Fresh and crispy cookies.",
+    image:
+      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    name: "Candy",
+    description: "Sweet candies for everyone.",
+    image:
+      "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    name: "Chocolate",
+    description: "Rich and delicious chocolates.",
+    image:
+      "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=80",
+  },
+];
+
 function CategorySection() {
-  const categories = [
-    {
-      name: "Cakes",
-      description: "Delicious cakes for every occasion.",
-      icon: "🍰",
-    },
-    {
-      name: "Cookies",
-      description: "Fresh and crispy cookies.",
-      icon: "🍪",
-    },
-    {
-      name: "Candy",
-      description: "Sweet candies for everyone.",
-      icon: "🍬",
-    },
-    {
-      name: "Chocolate",
-      description: "Rich and delicious chocolates.",
-      icon: "🍫",
-    },
-  ];
-
   return (
-    <section className="bg-white px-6 py-16 sm:px-8 lg:px-10">
+    <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
       <div className="mx-auto max-w-7xl">
-
-        {/* Section Heading */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-pink-500">
+        <div className="mb-12 text-center">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-pink-500">
             Our Categories
           </p>
 
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Explore Our Sweet Collection
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
-            Discover delicious treats made to make every moment a little
-            sweeter.
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+            Discover delicious treats made to make every moment a little sweeter.
           </p>
         </div>
 
-        {/* Categories */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
-            <div
+            <Link
               key={category.name}
-              className="group rounded-3xl border border-pink-100 bg-pink-50 p-6 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
+              to={`/products?category=${category.name}`}
+              className="group overflow-hidden rounded-2xl border border-pink-100 bg-pink-50 transition duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-lg"
             >
-              {/* Temporary Icon */}
-              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-white text-4xl shadow-sm transition duration-300 group-hover:scale-110">
-                {category.icon}
+              <div className="h-52 overflow-hidden bg-pink-100 sm:h-48">
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
 
-              {/* Category Name */}
-              <h3 className="text-xl font-bold text-gray-900">
-                {category.name}
-              </h3>
+              <div className="px-5 py-6 text-center">
+                <h3 className="text-xl font-bold text-gray-900 transition group-hover:text-pink-600">
+                  {category.name}
+                </h3>
 
-              {/* Description */}
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                {category.description}
-              </p>
+                <p className="mt-3 min-h-12 text-sm leading-6 text-gray-600">
+                  {category.description}
+                </p>
 
-              {/* Link */}
-              <button className="mt-5 font-semibold text-pink-500 transition hover:text-pink-600">
-                Explore →
-              </button>
-            </div>
+                <span className="mt-3 inline-block font-semibold text-pink-500">
+                  Explore <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
-
       </div>
     </section>
   );
