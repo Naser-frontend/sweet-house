@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 
@@ -73,8 +74,7 @@ function Products() {
   return (
     <main className="min-h-screen bg-pink-50 px-6 py-16 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
-
-        {/* Page Header */}
+        {/* Page Heading */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-pink-500">
             Sweet Collection
@@ -85,16 +85,17 @@ function Products() {
           </h1>
 
           <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
-            Explore our delicious collection of cakes, cookies, candies,
-            and chocolates made with love.
+            Explore our delicious collection of cakes, cookies,
+            candies, and chocolates made with love.
           </p>
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filters */}
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <button
               key={category}
+              type="button"
               onClick={() => setSelectedCategory(category)}
               className={`rounded-full px-6 py-3 text-sm font-semibold transition duration-300 ${
                 selectedCategory === category
@@ -107,7 +108,7 @@ function Products() {
           ))}
         </div>
 
-        {/* Product Grid */}
+        {/* Product Cards */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {filteredProducts.map((product) => (
             <ProductCard
@@ -118,7 +119,6 @@ function Products() {
             />
           ))}
         </div>
-
       </div>
     </main>
   );
