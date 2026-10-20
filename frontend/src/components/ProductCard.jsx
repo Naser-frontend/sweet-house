@@ -33,7 +33,6 @@ function ProductCard({ name, description, price }) {
   const { addToCart } = useCart();
   const [imageFailed, setImageFailed] = useState(false);
 
-  // Protect against a missing product name.
   const safeName =
     typeof name === "string" && name.trim()
       ? name
@@ -65,9 +64,9 @@ function ProductCard({ name, description, price }) {
   }
 
   return (
-    <article className="group overflow-hidden rounded-3xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
       {/* Product Image */}
-      <div className="relative h-64 overflow-hidden bg-pink-100">
+      <div className="relative h-64 shrink-0 overflow-hidden bg-pink-100">
         {image && !imageFailed ? (
           <img
             src={image}
@@ -96,7 +95,7 @@ function ProductCard({ name, description, price }) {
       </div>
 
       {/* Product Information */}
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center gap-1 text-sm">
           <span className="text-yellow-400">★★★★★</span>
           <span className="text-gray-400">(5.0)</span>
@@ -109,12 +108,12 @@ function ProductCard({ name, description, price }) {
           {safeName}
         </Link>
 
-        <p className="mt-2 text-sm leading-6 text-gray-500">
+        <p className="mt-2 min-h-12 text-sm leading-6 text-gray-500">
           {safeDescription}
         </p>
 
         {/* Price and Add to Cart */}
-        <div className="mt-6 flex items-center justify-between gap-3">
+        <div className="mt-auto flex items-center justify-between gap-3 pt-6">
           <span className="text-xl font-bold text-pink-500">
             {safePrice}
           </span>
@@ -122,7 +121,7 @@ function ProductCard({ name, description, price }) {
           <button
             type="button"
             onClick={handleAddToCart}
-            className="rounded-full bg-pink-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-600"
+            className="shrink-0 rounded-full bg-pink-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-600"
           >
             Add to Cart
           </button>
