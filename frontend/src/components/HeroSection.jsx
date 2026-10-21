@@ -35,7 +35,7 @@ function HeroSection() {
         </div>
 
         {/* Right Side - Online Cake Photo */}
-        <div className="relative mx-auto flex w-full max-w-[1000px] items-center justify-center md:min-h-[440px] lg:min-h-[500px]">
+        <div className="relative mx-auto flex w-auto max-w-[1000px] items-center justify-center md:min-h-[440px]  lg:min-h-[500px]">
 
           <img
             src={heroImage}

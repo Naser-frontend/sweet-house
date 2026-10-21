@@ -6,13 +6,13 @@ const categories = [
     name: "Cakes",
     description: "Delicious cakes for every occasion.",
     image:
-      "https://plus.unsplash.com/premium_photo-1713447395823-2e0b40b75a89?q=80&w=682&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "https://images.unsplash.com/photo-1592773790059-bb09b7b00b56?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     name: "Cookies",
     description: "Fresh and crispy cookies.",
     image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1583743089695-4b816a340f82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     name: "Candy",
