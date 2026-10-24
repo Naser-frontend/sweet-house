@@ -1,30 +1,30 @@
 
 import { Link } from "react-router-dom";
+import cakesImage from "../assets/image/catagory-img/cakes.jpg";
+import cookiesImage from "../assets/image/catagory-img/cookies.jpg";
+import candyImage from "../assets/image/catagory-img/candy.jpg";
+import chocolateImage from "../assets/image/catagory-img/chocolat.jpg";
 
 const categories = [
   {
     name: "Cakes",
     description: "Delicious cakes for every occasion.",
-    image:
-      "https://images.unsplash.com/photo-1592773790059-bb09b7b00b56?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    image: cakesImage,
   },
   {
     name: "Cookies",
     description: "Fresh and crispy cookies.",
-    image:
-      "https://images.unsplash.com/photo-1583743089695-4b816a340f82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    image: cookiesImage,
   },
   {
     name: "Candy",
     description: "Sweet candies for everyone.",
-    image:
-      "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=700&q=80",
+    image: candyImage,
   },
   {
     name: "Chocolate",
     description: "Rich and delicious chocolates.",
-    image:
-      "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=80",
+    image: chocolateImage,
   },
 ];
 

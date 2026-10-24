@@ -3,24 +3,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import chocolateCakeImage from "../assets/image/products-image/chocolate-cake-pro.jpg";
+import cupcakeImage from "../assets/image/products-image/cupcakes-pro.jpg";
+import cookiesImage from "../assets/image/products-image/cookies-pro.jpg";
+import candyImage from "../assets/image/products-image/candy-mix-pro.jpg";
+import vanillaCakeImage from "../assets/image/products-image/strawberry-cake-pro.jpg";
+import brownieImage from "../assets/image/products-image/chocolate-bar-pro.jpg";
+import macaronsImage from "../assets/image/products-image/mocorn.jpg";
+import chocolateImage from "../assets/image/products-image/darkchocollat.jpg";
 
 const productImages = {
-  "Chocolate Cake":
-    "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
-  "Strawberry Cupcake":
-    "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=600&q=80",
-  "Chocolate Cookies":
-    "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80",
-  "Candy Mix":
-    "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=600&q=80",
-  "Vanilla Cake":
-    "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
-  "Chocolate Brownie":
-    "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80",
-  "Macaron Box":
-    "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=600&q=80",
-  "Dark Chocolate":
-    "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80",
+  "Chocolate Cake": chocolateCakeImage,
+  "Strawberry Cupcake": cupcakeImage,
+  "Chocolate Cookies": cookiesImage,
+  "Candy Mix": candyImage,
+  "Vanilla Cake": vanillaCakeImage,
+  "Chocolate Brownie": brownieImage,
+  "Macaron Box": macaronsImage,
+  "Dark Chocolate": chocolateImage,
 };
 
 function ProductCard({ name, description, price }) {

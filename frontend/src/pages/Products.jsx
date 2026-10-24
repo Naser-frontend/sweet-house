@@ -1,4 +1,4 @@
-import banner from "../assets/products-banner.png"
+import banner from "../assets/image/products-banner.png"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {

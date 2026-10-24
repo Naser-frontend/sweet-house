@@ -2,7 +2,14 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-
+import chocolateCakeImage from "../assets/image/products-image/chocolate-cake-pro.jpg";
+import cupcakeImage from "../assets/image/products-image/cupcakes-pro.jpg";
+import cookiesImage from "../assets/image/products-image/cookies-pro.jpg";
+import candyImage from "../assets/image/products-image/candy-mix-pro.jpg";
+import vanillaCakeImage from "../assets/image/products-image/strawberry-cake-pro.jpg";
+import brownieImage from "../assets/image/products-image/chocolate-bar-pro.jpg";
+import macaronsImage from "../assets/image/products-image/mocorn.jpg";
+import chocolateImage from "../assets/image/products-image/darkchocollat.jpg";
 const products = [
   {
     id: "chocolate-cake",
@@ -11,8 +18,7 @@ const products = [
     description:
       "A rich and delicious chocolate cake made with quality ingredients. Perfect for birthdays, celebrations, and every sweet moment.",
     price: 15,
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85",
+    image: chocolateCakeImage,
   },
   {
     id: "strawberry-cupcake",
@@ -21,8 +27,7 @@ const products = [
     description:
       "A soft and fluffy cupcake topped with creamy strawberry frosting.",
     price: 5,
-    image:
-      "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1000&q=85",
+    image: cupcakeImage,
   },
   {
     id: "chocolate-cookies",
@@ -31,8 +36,7 @@ const products = [
     description:
       "Freshly baked cookies filled with chocolate chips. Crispy outside and soft inside.",
     price: 8,
-    image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=85",
+    image: cookiesImage,
   },
   {
     id: "candy-mix",
@@ -41,8 +45,7 @@ const products = [
     description:
       "A colorful selection of sweet candies for sharing, gifting, and enjoying.",
     price: 6,
-    image:
-      "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=1000&q=85",
+    image: candyImage,
   },
   {
     id: "vanilla-cake",
@@ -51,8 +54,7 @@ const products = [
     description:
       "A classic vanilla cake with soft texture and creamy frosting.",
     price: 18,
-    image:
-      "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85",
+    image: vanillaCakeImage,
   },
   {
     id: "chocolate-brownie",
@@ -61,8 +63,7 @@ const products = [
     description:
       "A rich, fudgy chocolate brownie with a delicious cocoa flavor.",
     price: 7,
-    image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85",
+    image: brownieImage,
   },
   {
     id: "macaron-box",
@@ -71,8 +72,7 @@ const products = [
     description:
       "Colorful French macarons with delicate shells and a sweet filling.",
     price: 12,
-    image:
-      "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=1000&q=85",
+    image: macaronsImage,
   },
   {
     id: "dark-chocolate",
@@ -81,8 +81,7 @@ const products = [
     description:
       "Enjoy the rich taste of dark chocolate, perfect for chocolate lovers.",
     price: 9,
-    image:
-      "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85",
+    image: chocolateImage,
   },
 ];
 
