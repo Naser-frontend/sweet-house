@@ -1,4 +1,4 @@
-
+// صفحه‌ی جزئیات یک محصول مشخص
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";

@@ -1,4 +1,4 @@
-
+// محصولات منتخب در صفحه‌ی اصلی
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 

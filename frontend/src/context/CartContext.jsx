@@ -1,11 +1,16 @@
-import { createContext, useContext, useState } from "react";
-
+﻿import { createContext, useContext, useRef, useState } from "react";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [cartNotice, setCartNotice] = useState("");
+  const noticeTimer = useRef(null);
 
   const addToCart = (product) => {
+    setCartNotice(`${product.name} added to cart`);
+    if (noticeTimer.current) clearTimeout(noticeTimer.current);
+    noticeTimer.current = setTimeout(() => setCartNotice(""), 3000);
+
     setCartItems((currentItems) => {
       const existingItem = currentItems.find(
         (item) => item.id === product.id
@@ -50,6 +55,7 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cartItems,
+        cartNotice,
         addToCart,
         removeFromCart,
         updateQuantity,
@@ -57,6 +63,13 @@ export function CartProvider({ children }) {
       }}
     >
       {children}
+      <div
+        role="status"
+        aria-live="polite"
+        className={`fixed bottom-5 right-5 z-50 rounded-xl bg-pink-500 px-5 py-3 text-sm font-semibold text-white shadow-lg transition duration-300 ${cartNotice ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+      >
+        {cartNotice}
+      </div>
     </CartContext.Provider>
   );
 }
@@ -64,3 +77,4 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
+

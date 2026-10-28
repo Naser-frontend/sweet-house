@@ -1,4 +1,4 @@
-
+// ظاهر کارت هر محصول و دکمه‌ی افزودن به سبد خرید
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";

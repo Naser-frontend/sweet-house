@@ -45,10 +45,7 @@ function Footer() {
               cookies, candies, and chocolates made with love.
             </p>
 
-            <div className="mt-5 inline-flex items-center gap-2 text-sm text-pink-300">
-              <Heart size={16} fill="currentColor" />
-             
-            </div>
+           
           </div>
 
           {/* Quick Links */}
