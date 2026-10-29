@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 import logo from "../assets/logo.png";
 
 const navLinkClass = ({ isActive }) =>

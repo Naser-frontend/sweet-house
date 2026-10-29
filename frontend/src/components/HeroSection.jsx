@@ -10,14 +10,14 @@ function HeroSection() {
         {/* Left Side */}
         <div className="relative z-10 text-center md:text-left">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-pink-600 sm:text-sm">
-            Fresh <span className="mx-2">•</span> Delicious
-            <span className="mx-2">•</span> Always
+            Fresh <span className="mx-2">&bull;</span> Delicious
+            <span className="mx-2">&bull;</span> Always
           </p>
 
           <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#25191d] sm:text-5xl lg:text-6xl xl:text-7xl">
             Sweet Moments
             <span className="mt-1 block text-pink-500">
-              Start Here <span className="font-medium">♡</span>
+              Start Here <span className="font-medium">&#9825;</span>
             </span>
           </h1>
 
@@ -30,7 +30,7 @@ function HeroSection() {
             to="/products"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-pink-500 px-7 py-3 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg sm:px-8 sm:py-3.5 sm:text-base"
           >
-            Shop Now <span aria-hidden="true">→</span>
+            Shop Now <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
 
@@ -41,7 +41,7 @@ function HeroSection() {
             src={heroImage}
             alt="Delicious chocolate cake"
             fetchPriority="high"
-            className="relative z-10 h-auto max-h-[360px] w-full object-contain sm:max-h-[430px] lg:max-h-[500px]"
+            className="relative z-10 h-auto max-h-[360px] w-full flex-none object-contain sm:max-h-[430px] md:max-h-[500px] md:w-[145%] lg:max-h-[560px] lg:w-[160%]"
           />
         </div>
       </div>

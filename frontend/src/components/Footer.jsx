@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   CakeSlice,
-  Heart,
   House,
   ShoppingBag,
   Info,

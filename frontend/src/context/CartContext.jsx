@@ -1,5 +1,8 @@
-﻿import { createContext, useContext, useRef, useState } from "react";
-const CartContext = createContext();
+/* eslint-disable react-refresh/only-export-components */
+import { useRef, useState } from "react";
+import { CartContext } from "./cartStore";
+
+export { useCart } from "./useCart";
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
@@ -12,17 +15,12 @@ export function CartProvider({ children }) {
     noticeTimer.current = setTimeout(() => setCartNotice(""), 3000);
 
     setCartItems((currentItems) => {
-      const existingItem = currentItems.find(
-        (item) => item.id === product.id
-      );
+      const existingItem = currentItems.find((item) => item.id === product.id);
 
       if (existingItem) {
         return currentItems.map((item) =>
           item.id === product.id
-            ? {
-                ...item,
-                quantity: item.quantity + product.quantity,
-              }
+            ? { ...item, quantity: item.quantity + product.quantity }
             : item
         );
       }
@@ -40,9 +38,7 @@ export function CartProvider({ children }) {
   const updateQuantity = (productId, quantity) => {
     setCartItems((currentItems) =>
       currentItems.map((item) =>
-        item.id === productId
-          ? { ...item, quantity }
-          : item
+        item.id === productId ? { ...item, quantity } : item
       )
     );
   };
@@ -55,7 +51,6 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cartItems,
-        cartNotice,
         addToCart,
         removeFromCart,
         updateQuantity,
@@ -73,8 +68,3 @@ export function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
-
-export function useCart() {
-  return useContext(CartContext);
-}
-
