@@ -1,20 +1,17 @@
-import heroImage from "../assets/image/hero-cake.png";
 import { Link } from "react-router-dom";
-
-
+import heroImage from "../assets/image/hero-cake.png";
 
 function HeroSection() {
   return (
-    <section className="overflow-hidden bg-gradient-to-r from-[#fff1f5] via-[#ffe8ef] to-[#ffd6d2]">
-      <div className="mx-auto grid min-h-[570px] max-w-7xl grid-cols-1 items-center gap-8 px-5 py-12 sm:px-8 md:grid-cols-2 md:gap-4 lg:min-h-[620px] lg:px-10 lg:py-14">
-        {/* Left Side */}
-        <div className="relative z-10 text-center md:text-left">
+    <section className="overflow-hidden bg-[#fff1f5]">
+      <div className="mx-auto grid min-h-[570px] max-w-7xl grid-cols-1 overflow-hidden sm:rounded-b-3xl md:grid-cols-2 md:items-stretch">
+        <div className="relative z-10 flex flex-col justify-center px-5 py-14 text-center sm:px-10 md:px-12 md:text-left lg:px-16">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-pink-600 sm:text-sm">
             Fresh <span className="mx-2">&bull;</span> Delicious
             <span className="mx-2">&bull;</span> Always
           </p>
 
-          <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#25191d] sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#25191d] sm:text-5xl lg:text-6xl">
             Sweet Moments
             <span className="mt-1 block text-pink-500">
               Start Here <span className="font-medium">&#9825;</span>
@@ -28,21 +25,20 @@ function HeroSection() {
 
           <Link
             to="/products"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-pink-500 px-7 py-3 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg sm:px-8 sm:py-3.5 sm:text-base"
+            className="mt-7 inline-flex w-fit self-center items-center gap-2 rounded-full bg-pink-500 px-7 py-3 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg sm:px-8 sm:py-3.5 sm:text-base md:self-start"
           >
             Shop Now <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
 
-        {/* Right Side - Online Cake Photo */}
-        <div className="relative mx-auto flex w-auto max-w-[1000px] items-center justify-center md:min-h-[440px]  lg:min-h-[500px]">
-
+        <div className="relative h-[330px] overflow-hidden sm:h-[430px] md:h-auto md:min-h-[570px]">
           <img
             src={heroImage}
-            alt="Delicious chocolate cake"
+            alt="Chocolate cake with strawberries, cupcakes, cookies, and candy"
             fetchPriority="high"
-            className="relative z-10 h-auto max-h-[360px] w-full flex-none object-contain sm:max-h-[430px] md:max-h-[500px] md:w-[145%] lg:max-h-[560px] lg:w-[160%]"
+            className="absolute inset-0 h-full w-full -translate-y-8 object-contain object-bottom md:-translate-y-10"
           />
+          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#fff1f5]/60 to-transparent md:w-20" />
         </div>
       </div>
     </section>
