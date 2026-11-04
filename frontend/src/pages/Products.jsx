@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { ChevronRight, SlidersHorizontal } from "lucide-react";
 import banner from "../assets/image/products-banner.png";
 import ProductCard from "../components/ProductCard";
@@ -14,8 +14,19 @@ const priceRanges = [
 ];
 
 function Products() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    const categoryFromUrl = searchParams.get("category");
+    return categories.includes(categoryFromUrl) ? categoryFromUrl : "All";
+  });
   const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
+
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+    setSelectedCategory(
+      categories.includes(categoryFromUrl) ? categoryFromUrl : "All"
+    );
+  }, [searchParams]);
 
   function togglePriceRange(label) {
     setSelectedPriceRanges((current) =>
