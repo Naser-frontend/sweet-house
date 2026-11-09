@@ -10,16 +10,16 @@ function FeaturedProducts() {
   return (
     <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+        <div className="relative mb-8 text-center sm:mb-10">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-[#25191d] sm:text-4xl">
-              Featured Products
+              Featured <span className="text-pink-500">Products</span>
             </h2>
             <p className="mt-2 text-sm text-gray-600 sm:text-base">
               Our most loved treats
             </p>
           </div>
-          <Link to="/products" className="group inline-flex w-fit items-center gap-2 text-sm font-bold text-pink-500 transition hover:text-pink-600">
+          <Link to="/products" className="group mt-4 inline-flex w-fit items-center gap-2 text-sm font-bold text-pink-500 transition hover:text-pink-600 sm:absolute sm:bottom-0 sm:right-0 sm:mt-0">
             View All
             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </Link>
