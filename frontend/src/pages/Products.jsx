@@ -70,7 +70,6 @@ function Products() {
     <main className="min-h-screen bg-[#fff8fa] pb-12">
       <section className="relative flex min-h-[170px] items-center justify-center overflow-hidden bg-[#ffe8ef] px-5 py-8 sm:min-h-[190px]">
         <img src={banner} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-100/85 via-rose-50/70 to-pink-100/85" />
         <div className="relative z-10 text-center">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-pink-600 sm:text-xs">Sweet Moments Start Here</p>
           <h1 className="text-3xl font-extrabold tracking-tight text-[#25191d] sm:text-4xl">Our Products</h1>
