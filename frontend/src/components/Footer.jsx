@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  CakeSlice,
   House,
   ShoppingBag,
   Info,
@@ -9,6 +8,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
+import logo from "../assets/logo.png";
 
 function Footer() {
   const quickLinks = [
@@ -25,18 +25,12 @@ function Footer() {
         <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12 lg:pb-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link
-              to="/"
-              className="group inline-flex items-center gap-3"
-              aria-label="Sweet House Home"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pink-500 text-white transition duration-300 group-hover:rotate-6 group-hover:scale-105">
-                <CakeSlice size={27} strokeWidth={1.8} />
-              </span>
-
-              <span className="text-2xl font-extrabold tracking-tight">
-                Sweet <span className="text-pink-400">House</span>
-              </span>
+            <Link to="/" className="inline-flex" aria-label="Sweet House Home">
+              <img
+                src={logo}
+                alt="Sweet House"
+                className="h-14 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-gray-400">
@@ -90,14 +84,14 @@ function Footer() {
               </a>
 
               <a
-                href="tel:+93700000000"
+                href="tel:+93794490787"
                 className="group flex items-start gap-3 transition hover:text-pink-400"
               >
                 <Phone
                   size={18}
                   className="mt-0.5 shrink-0 text-pink-400"
                 />
-                <span>+93 700 000 000</span>
+                <span>+93 794 490 787</span>
               </a>
 
               <div className="flex items-start gap-3">
