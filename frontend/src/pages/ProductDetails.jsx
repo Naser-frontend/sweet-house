@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BadgeCheck, Minus, Plus, ShieldCheck, Truck } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/useCart";
 import products from "../data/products";
@@ -38,25 +39,30 @@ function ProductDetails() {
           <span className="font-medium text-pink-600">{product.name}</span>
         </nav>
 
-        <section className="grid grid-cols-1 gap-8 rounded-3xl border border-pink-50 bg-white p-4 shadow-sm sm:p-6 lg:grid-cols-2 lg:gap-12 lg:p-10">
-          <div className="relative min-h-[300px] overflow-hidden rounded-2xl bg-pink-50 sm:min-h-[420px] lg:min-h-[500px]">
+        <section className="grid grid-cols-1 gap-7 rounded-3xl border border-pink-100 bg-white p-4 shadow-sm sm:p-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 lg:p-8">
+          <div className="relative min-h-[300px] overflow-hidden rounded-2xl bg-pink-50 sm:min-h-[380px] lg:min-h-[440px]">
             <img src={product.image} alt={product.name} className="absolute inset-0 h-full w-full object-cover" />
             <span className="absolute left-4 top-4 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-pink-600 shadow-sm">{product.category}</span>
           </div>
-          <div className="flex flex-col justify-center py-2 sm:py-4">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-pink-500">Sweet Collection</p>
-            <h1 className="mt-3 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">{product.name}</h1>
-            <div className="mt-5 flex flex-wrap items-center gap-2"><span className="text-lg tracking-wide text-amber-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span className="text-sm text-gray-500">5.0 (12 reviews)</span></div>
-            <p className="mt-6 text-3xl font-extrabold text-pink-600">${product.price.toFixed(2)}</p>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-gray-600 sm:text-base">{product.description}</p>
-            <div className="my-7 border-t border-pink-100" />
-            <div><p className="mb-3 text-sm font-bold text-gray-900">Quantity</p><div className="flex w-fit items-center overflow-hidden rounded-full border border-pink-100">
-              <button type="button" onClick={() => setQuantity((current) => Math.max(1, current - 1))} disabled={quantity <= 1} aria-label="Decrease quantity" className="flex h-11 w-11 items-center justify-center text-xl text-gray-700 transition hover:bg-pink-50 hover:text-pink-600 disabled:cursor-not-allowed disabled:opacity-40">-</button>
-              <span className="flex h-11 w-12 items-center justify-center border-x border-pink-100 text-sm font-bold text-gray-900">{quantity}</span>
-              <button type="button" onClick={() => setQuantity((current) => current + 1)} aria-label="Increase quantity" className="flex h-11 w-11 items-center justify-center text-xl text-gray-700 transition hover:bg-pink-50 hover:text-pink-600">+</button>
+          <div className="flex flex-col justify-center py-2 lg:py-4">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500">Sweet Collection</p>
+            <h1 className="mt-2 text-3xl font-extrabold leading-tight text-[#25191d] sm:text-4xl">{product.name}</h1>
+            <div className="mt-3 flex flex-wrap items-center gap-2"><span className="text-base tracking-wide text-amber-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span className="text-sm text-gray-500">5.0 (12 reviews)</span></div>
+            <p className="mt-4 text-2xl font-extrabold text-pink-600">${product.price.toFixed(2)}</p>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-gray-600">{product.description}</p>
+            <div className="my-6 border-t border-pink-100" />
+            <div className="flex flex-wrap items-center gap-4"><p className="text-sm font-bold text-gray-900">Quantity</p><div className="flex w-fit items-center overflow-hidden rounded-full border border-pink-100">
+              <button type="button" onClick={() => setQuantity((current) => Math.max(1, current - 1))} disabled={quantity <= 1} aria-label="Decrease quantity" className="flex h-10 w-10 items-center justify-center text-gray-700 transition hover:bg-pink-50 hover:text-pink-600 disabled:cursor-not-allowed disabled:opacity-40"><Minus size={17} /></button>
+              <span className="flex h-10 w-12 items-center justify-center border-x border-pink-100 text-sm font-bold text-gray-900">{quantity}</span>
+              <button type="button" onClick={() => setQuantity((current) => current + 1)} aria-label="Increase quantity" className="flex h-10 w-10 items-center justify-center text-gray-700 transition hover:bg-pink-50 hover:text-pink-600"><Plus size={17} /></button>
             </div></div>
-            <div className="mt-6 flex items-center justify-between rounded-xl bg-pink-50 px-4 py-3"><span className="text-sm font-medium text-gray-600">Total Price</span><span className="text-lg font-extrabold text-pink-600">${(product.price * quantity).toFixed(2)}</span></div>
-            <button type="button" onClick={addProductToCart} className="mt-6 w-full rounded-full bg-pink-500 px-6 py-4 font-bold text-white shadow-sm transition hover:bg-pink-600 hover:shadow-md">Add to Cart</button>
+            <div className="mt-5 flex items-center justify-between rounded-xl bg-pink-50 px-4 py-3"><span className="text-sm font-medium text-gray-600">Total Price</span><span className="text-lg font-extrabold text-pink-600">${(product.price * quantity).toFixed(2)}</span></div>
+            <button type="button" onClick={addProductToCart} className="mt-5 w-full rounded-full bg-pink-500 px-6 py-3.5 font-bold text-white shadow-sm transition hover:bg-pink-600 hover:shadow-md">Add to Cart</button>
+            <div className="mt-6 grid grid-cols-3 border-t border-pink-100 pt-5 text-center text-[10px] font-medium text-gray-500 sm:text-xs">
+              <div className="flex flex-col items-center gap-2"><BadgeCheck size={17} className="text-pink-500" />Fresh ingredients</div>
+              <div className="flex flex-col items-center gap-2 border-x border-pink-100"><Truck size={17} className="text-pink-500" />Fast delivery</div>
+              <div className="flex flex-col items-center gap-2"><ShieldCheck size={17} className="text-pink-500" />Secure payment</div>
+            </div>
           </div>
         </section>
 
