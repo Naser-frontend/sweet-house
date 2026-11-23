@@ -1,4 +1,4 @@
-import { BadgeCheck, Headset, Heart, Leaf, Sparkles } from "lucide-react";
+import { BadgeCheck, Heart, Leaf, Sparkles, UserRound } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import Footer from "../components/Footer";
@@ -23,7 +23,7 @@ const values = [
     description: "We add a thoughtful, joyful touch to every recipe and design.",
   },
   {
-    icon: Headset,
+    icon: UserRound,
     title: "Customer Care",
     description: "Your happiness is at the heart of every Sweet House moment.",
   },
@@ -34,8 +34,8 @@ function About() {
     <div className="bg-white">
       <main>
         <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-2xl border border-pink-100 bg-gradient-to-br from-[#fff7fa] via-[#ffeaf2] to-[#ffd1e3] shadow-[0_14px_34px_rgba(236,72,153,0.1)] md:min-h-[520px] md:grid-cols-2 md:items-center lg:rounded-3xl">
-            <div className="order-2 px-2 py-10 text-center sm:px-8 md:order-1 md:px-10 md:py-16 md:text-left lg:px-14">
+          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-2xl border border-pink-100 bg-gradient-to-br from-[#fff7fa] via-[#ffeaf2] to-[#ffd1e3] shadow-[0_14px_34px_rgba(236,72,153,0.1)] lg:min-h-[520px] lg:grid-cols-2 lg:items-center lg:rounded-3xl">
+            <div className="order-2 px-2 py-10 text-center sm:px-8 lg:order-1 lg:px-14 lg:py-16 lg:text-left">
               <div className="mb-5 flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-pink-500 md:justify-start">
                 <span className="h-px w-5 bg-pink-500" aria-hidden="true" />
                 About Us
@@ -47,20 +47,20 @@ function About() {
                   Our Story <Heart className="mb-1 inline-block" size={34} fill="currentColor" aria-hidden="true" />
                 </span>
               </h1>
-              <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-gray-600 sm:text-base md:mx-0">
+              <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-gray-600 sm:text-base lg:mx-0">
                 Welcome to Sweet House! We are passionate about making life sweeter with delicious cakes, cupcakes, cookies and more.
               </p>
               <Link to="/products" className="mt-7 inline-flex items-center gap-3 rounded-full bg-pink-500 px-7 py-3.5 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg">
                 Explore Our Treats <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
-            <div className="order-1 flex min-h-[290px] items-center justify-center px-4 pt-8 sm:min-h-[360px] sm:px-8 md:order-2 md:min-h-[520px] md:px-2 md:pt-0">
-              <img src={aboutHero} alt="Strawberry chocolate drip cake" className="max-h-[360px] w-full object-contain drop-shadow-xl sm:max-h-[430px] md:max-h-[480px]" />
+            <div className="order-1 flex min-h-[290px] items-center justify-center px-4 pt-8 sm:min-h-[360px] sm:px-8 lg:order-2 lg:min-h-[520px] lg:px-2 lg:pt-0">
+              <img src={aboutHero} alt="Strawberry chocolate drip cake" className="max-h-[360px] w-full object-contain drop-shadow-xl sm:max-h-[430px] lg:max-h-[480px]" />
             </div>
           </div>
         </section>
 
-        <section className="bg-[#fff9fb] px-4 py-14 sm:px-6 sm:py-18 lg:px-8 lg:py-20">
+        <section className="bg-[#fff9fb] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="overflow-hidden rounded-2xl border border-pink-100 bg-white p-2 shadow-[0_12px_30px_rgba(236,72,153,0.1)] sm:rounded-3xl">
               <img src={storyImage} alt="Pink and chocolate cupcakes" className="h-72 w-full rounded-xl object-cover sm:h-96 sm:rounded-2xl" />
@@ -114,14 +114,14 @@ function About() {
         </section>
 
         <section className="px-4 pb-8 sm:px-6 sm:pb-12 lg:px-8">
-          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-pink-100 bg-gradient-to-br from-[#fff0f5] via-[#ffd9e8] to-[#ffb9d6] shadow-[0_14px_34px_rgba(236,72,153,0.12)] sm:grid-cols-[1.05fr_0.95fr] sm:items-center">
+          <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-pink-100 bg-gradient-to-br from-[#fff0f5] via-[#ffd9e8] to-[#ffb9d6] shadow-[0_14px_34px_rgba(236,72,153,0.12)] md:grid-cols-[1.05fr_0.95fr] md:items-center">
             <div className="p-7 sm:p-10 lg:p-12">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-pink-700">Make your day sweeter</p>
               <h2 className="mt-3 max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-[#25191d] sm:text-4xl lg:text-[2.65rem]">Life is Better with Sweets</h2>
               <p className="mt-3 max-w-md text-sm leading-6 text-[#5c3948] sm:text-base">Find a delicious favorite for yourself or share a little happiness with someone special.</p>
               <Link to="/products" className="mt-6 inline-flex items-center gap-2 rounded-full bg-pink-500 px-6 py-3 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg">Explore Our Products <span aria-hidden="true">&rarr;</span></Link>
             </div>
-            <div className="flex items-end justify-center px-6 pt-2 sm:h-full sm:px-4 sm:pt-0"><img src={ctaImage} alt="Strawberry cake and cupcake" className="max-h-56 w-full object-contain sm:max-h-64 lg:max-h-72" /></div>
+            <div className="flex items-end justify-center px-6 pt-2 md:h-full md:px-4 md:pt-0"><img src={ctaImage} alt="Strawberry cake and cupcake" className="max-h-56 w-full object-contain sm:max-h-64 lg:max-h-72" /></div>
           </div>
         </section>
       </main>
