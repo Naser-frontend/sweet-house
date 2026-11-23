@@ -1,7 +1,32 @@
-import { Mail } from "lucide-react";
+import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 
 import Footer from "../components/Footer";
 import contactImage from "../assets/image/about/Strawberry Cake and Cupcake Delight.png";
+
+const contactDetails = [
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Herat, Afghanistan",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+93 794490787",
+    href: "tel:+93794490787",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "hello@sweethouse.com",
+    href: "mailto:hello@sweethouse.com",
+  },
+  {
+    icon: Clock3,
+    label: "Opening Hours",
+    value: "Every Day: 8:00 AM – 9:00 PM",
+  },
+];
 
 function Contact() {
   return (
@@ -37,6 +62,41 @@ function Contact() {
                 alt="Strawberry cake and cupcake"
                 className="max-h-[310px] w-full object-contain drop-shadow-xl sm:max-h-[390px] lg:max-h-[450px]"
               />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#fff9fb] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-pink-500 sm:text-sm">We&apos;d Love to Hear from You</p>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#25191d] sm:text-4xl">Contact Information</h2>
+              <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">Reach out to Sweet House whenever you need a little help or a little more sweetness.</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+              {contactDetails.map((detail) => {
+                const Icon = detail.icon;
+                const content = (
+                  <>
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-pink-100 text-pink-500">
+                      <Icon size={22} strokeWidth={1.9} aria-hidden="true" />
+                    </div>
+                    <h3 className="mt-4 text-sm font-bold uppercase tracking-[0.12em] text-[#25191d]">{detail.label}</h3>
+                    <p className="mt-2 break-words text-sm leading-6 text-gray-600">{detail.value}</p>
+                  </>
+                );
+
+                return detail.href ? (
+                  <a key={detail.label} href={detail.href} className="rounded-2xl border border-pink-100 bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_12px_28px_rgba(236,72,153,0.12)]">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={detail.label} className="rounded-2xl border border-pink-100 bg-white p-5 text-center shadow-sm">
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
