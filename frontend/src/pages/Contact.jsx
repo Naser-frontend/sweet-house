@@ -1,4 +1,5 @@
-import { Clock3, FileText, Mail, MapPin, MessageSquare, Phone, Send, UserRound } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Clock3, FileText, Mail, MapPin, MessageSquare, Phone, Send, UserRound } from "lucide-react";
 
 import Footer from "../components/Footer";
 import contactImage from "../assets/image/about/Strawberry Cake and Cupcake Delight.png";
@@ -28,7 +29,28 @@ const contactDetails = [
   },
 ];
 
+const frequentlyAskedQuestions = [
+  {
+    question: "How can I place an order?",
+    answer: "You can browse our Products page, choose your favorite treats, and add them to your cart. We will take care of the sweet details from there.",
+  },
+  {
+    question: "Do you offer delivery?",
+    answer: "Yes, we offer delivery for Sweet House orders. Contact us with your order details and location so we can help arrange it.",
+  },
+  {
+    question: "How can I contact Sweet House?",
+    answer: "You can call us at +93 794490787 or email hello@sweethouse.com. We are always happy to help.",
+  },
+  {
+    question: "What are your opening hours?",
+    answer: "We are open every day from 8:00 AM to 9:00 PM.",
+  },
+];
+
 function Contact() {
+  const [openFaq, setOpenFaq] = useState(null);
+
   return (
     <div className="bg-white">
       <main>
@@ -149,6 +171,44 @@ function Contact() {
                 <Send size={17} aria-hidden="true" />
               </button>
             </form>
+          </div>
+        </section>
+
+        <section className="bg-[#fff9fb] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-4xl">
+            <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-pink-500 sm:text-sm">Sweet House Answers</p>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#25191d] sm:text-4xl">Frequently Asked Questions</h2>
+              <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">A few helpful answers before you get in touch with us.</p>
+            </div>
+
+            <div className="space-y-3">
+              {frequentlyAskedQuestions.map((faq, index) => {
+                const isOpen = openFaq === index;
+                const answerId = `faq-answer-${index}`;
+
+                return (
+                  <div key={faq.question} className="overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm">
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={answerId}
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-bold text-[#25191d] transition hover:bg-pink-50 sm:px-6 sm:py-5 sm:text-base"
+                    >
+                      <span>{faq.question}</span>
+                      <ChevronDown size={20} aria-hidden="true" className={`shrink-0 text-pink-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                    </button>
+
+                    {isOpen && (
+                      <div id={answerId} className="border-t border-pink-100 bg-[#fffafc] px-5 py-4 text-sm leading-7 text-gray-600 sm:px-6">
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       </main>
