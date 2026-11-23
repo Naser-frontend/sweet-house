@@ -1,4 +1,4 @@
-import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { Clock3, FileText, Mail, MapPin, MessageSquare, Phone, Send, UserRound } from "lucide-react";
 
 import Footer from "../components/Footer";
 import contactImage from "../assets/image/about/Strawberry Cake and Cupcake Delight.png";
@@ -98,6 +98,57 @@ function Contact() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-4xl rounded-3xl border border-pink-100 bg-gradient-to-br from-[#fff7fa] via-[#fff0f5] to-[#ffe0ed] p-6 shadow-[0_14px_34px_rgba(236,72,153,0.12)] sm:p-8 lg:p-12">
+            <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-pink-500 sm:text-sm">Send Us a Message</p>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#25191d] sm:text-4xl">Let&apos;s Talk Sweets</h2>
+              <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">Fill out the form and our Sweet House team will be happy to hear from you.</p>
+            </div>
+
+            <form onSubmit={(event) => event.preventDefault()} className="space-y-5">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="full-name" className="text-sm font-semibold text-[#25191d]">Full Name</label>
+                  <div className="relative mt-2">
+                    <UserRound className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-pink-400" size={18} aria-hidden="true" />
+                    <input id="full-name" name="fullName" type="text" autoComplete="name" required placeholder="Your full name" className="w-full rounded-xl border border-pink-100 bg-white/80 py-3 pl-11 pr-4 text-sm text-[#25191d] outline-none transition placeholder:text-gray-400 focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100" />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="email-address" className="text-sm font-semibold text-[#25191d]">Email Address</label>
+                  <div className="relative mt-2">
+                    <Mail className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-pink-400" size={18} aria-hidden="true" />
+                    <input id="email-address" name="email" type="email" autoComplete="email" required placeholder="you@example.com" className="w-full rounded-xl border border-pink-100 bg-white/80 py-3 pl-11 pr-4 text-sm text-[#25191d] outline-none transition placeholder:text-gray-400 focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="text-sm font-semibold text-[#25191d]">Subject</label>
+                <div className="relative mt-2">
+                  <FileText className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-pink-400" size={18} aria-hidden="true" />
+                  <input id="subject" name="subject" type="text" required placeholder="How can we help?" className="w-full rounded-xl border border-pink-100 bg-white/80 py-3 pl-11 pr-4 text-sm text-[#25191d] outline-none transition placeholder:text-gray-400 focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100" />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="text-sm font-semibold text-[#25191d]">Message</label>
+                <div className="relative mt-2">
+                  <MessageSquare className="pointer-events-none absolute left-4 top-4 text-pink-400" size={18} aria-hidden="true" />
+                  <textarea id="message" name="message" rows="6" required placeholder="Tell us a little about your question or sweet idea..." className="w-full resize-y rounded-xl border border-pink-100 bg-white/80 py-3 pl-11 pr-4 text-sm leading-6 text-[#25191d] outline-none transition placeholder:text-gray-400 focus:border-pink-400 focus:bg-white focus:ring-4 focus:ring-pink-100" />
+                </div>
+              </div>
+
+              <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-pink-500 px-6 py-3.5 text-sm font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg sm:w-auto">
+                Send Message
+                <Send size={17} aria-hidden="true" />
+              </button>
+            </form>
           </div>
         </section>
       </main>
