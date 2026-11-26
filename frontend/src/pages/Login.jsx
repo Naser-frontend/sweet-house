@@ -76,9 +76,27 @@ function Login() {
               </div>
 
               <div className="grid grid-cols-3 gap-3">
-                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50"><span className="text-base font-extrabold text-[#4285f4]" aria-hidden="true">G</span><span className="sr-only">Continue with Google</span></button>
-                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50"><span className="text-lg font-extrabold text-[#1877f2]" aria-hidden="true">f</span><span className="sr-only">Continue with Facebook</span></button>
-                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50"><span className="text-lg font-bold text-[#25191d]" aria-hidden="true"></span><span className="sr-only">Continue with Apple</span></button>
+                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+                    <path fill="#4285F4" d="M21.35 12.23c0-.7-.06-1.37-.18-2.02H12v3.82h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.19Z" />
+                    <path fill="#34A853" d="M12 21.75c2.63 0 4.84-.87 6.45-2.33l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.54 0-4.7-1.72-5.47-4.03H3.29v2.53A9.75 9.75 0 0 0 12 21.75Z" />
+                    <path fill="#FBBC05" d="M6.53 13.86a5.86 5.86 0 0 1 0-3.72V7.61H3.29a9.75 9.75 0 0 0 0 8.78l3.24-2.53Z" />
+                    <path fill="#EA4335" d="M12 6.11c1.43 0 2.71.49 3.72 1.46l2.79-2.79C16.84 3.24 14.63 2.25 12 2.25a9.75 9.75 0 0 0-8.71 5.36l3.24 2.53C7.3 7.83 9.46 6.11 12 6.11Z" />
+                  </svg>
+                  <span className="sr-only">Continue with Google</span>
+                </button>
+                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+                    <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.04 1.79-4.72 4.55-4.72 1.32 0 2.7.24 2.7.24v2.99h-1.52c-1.5 0-1.97.94-1.97 1.9v2.25h3.35l-.54 3.49h-2.81V24C19.61 23.09 24 18.09 24 12.07Z" />
+                  </svg>
+                  <span className="sr-only">Continue with Facebook</span>
+                </button>
+                <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl border border-pink-100 bg-white px-3 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-pink-200 hover:bg-pink-50">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#25191d]" fill="currentColor" aria-hidden="true">
+                    <path d="M16.36 12.9c-.02-2.4 1.96-3.56 2.05-3.61a4.41 4.41 0 0 0-3.47-1.88c-1.46-.15-2.87.87-3.61.87-.75 0-1.91-.85-3.14-.83a4.63 4.63 0 0 0-3.9 2.38c-1.68 2.92-.43 7.2 1.18 9.56.8 1.16 1.73 2.45 2.96 2.4 1.2-.05 1.65-.77 3.1-.77 1.45 0 1.86.77 3.12.74 1.29-.02 2.1-1.17 2.87-2.34a9.6 9.6 0 0 0 1.31-2.7 4.18 4.18 0 0 1-2.47-3.82ZM14 5.86a4.2 4.2 0 0 0 .96-3.03 4.28 4.28 0 0 0-2.77 1.44 4 4 0 0 0-1 2.92A3.54 3.54 0 0 0 14 5.86Z" />
+                  </svg>
+                  <span className="sr-only">Continue with Apple</span>
+                </button>
               </div>
 
               <Link to="/" className="mt-6 inline-flex text-sm font-semibold text-pink-600 transition hover:text-pink-700">
