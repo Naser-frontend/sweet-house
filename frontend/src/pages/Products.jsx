@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChevronRight, SlidersHorizontal } from "lucide-react";
 import banner from "../assets/image/products-banner.png";
@@ -14,19 +14,12 @@ const priceRanges = [
 ];
 
 function Products() {
-  const [searchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState(() => {
-    const categoryFromUrl = searchParams.get("category");
-    return categories.includes(categoryFromUrl) ? categoryFromUrl : "All";
-  });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
+  const selectedCategory = categories.includes(categoryFromUrl)
+    ? categoryFromUrl
+    : "All";
   const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
-
-  useEffect(() => {
-    const categoryFromUrl = searchParams.get("category");
-    setSelectedCategory(
-      categories.includes(categoryFromUrl) ? categoryFromUrl : "All"
-    );
-  }, [searchParams]);
 
   function togglePriceRange(label) {
     setSelectedPriceRanges((current) =>
@@ -62,7 +55,7 @@ function Products() {
   });
 
   function clearFilters() {
-    setSelectedCategory("All");
+    setSearchParams({});
     setSelectedPriceRanges([]);
   }
 
@@ -90,7 +83,7 @@ function Products() {
           <h3 className="mb-3 text-sm font-bold text-gray-800">Categories</h3>
           <div className="flex flex-wrap gap-1 lg:flex-col">
             {categories.map((category) => (
-              <button key={category} type="button" aria-pressed={selectedCategory === category} onClick={() => setSelectedCategory(category)} className={`rounded-lg px-3 py-2 text-left text-sm transition ${selectedCategory === category ? "bg-pink-100 font-semibold text-pink-600" : "text-gray-600 hover:bg-pink-50 hover:text-pink-500"}`}>
+              <button key={category} type="button" aria-pressed={selectedCategory === category} onClick={() => setSearchParams(category === "All" ? {} : { category })} className={`rounded-lg px-3 py-2 text-left text-sm transition ${selectedCategory === category ? "bg-pink-100 font-semibold text-pink-600" : "text-gray-600 hover:bg-pink-50 hover:text-pink-500"}`}>
                 {category}
               </button>
             ))}

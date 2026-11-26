@@ -33,9 +33,9 @@ function Login() {
               <button type="button" className="min-h-11 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-pink-600 shadow-sm" aria-current="page" aria-selected="true">
                 Login
               </button>
-              <button type="button" className="min-h-11 rounded-full px-4 py-2.5 text-sm font-semibold text-gray-500 transition hover:bg-white/70 hover:text-pink-500">
+              <Link to="/register" className="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold text-gray-500 transition hover:bg-white/70 hover:text-pink-500">
                 Register
-              </button>
+              </Link>
             </div>
 
             <div className="mt-10">
