@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/favorites" element={<Favorites />} />
         
       </Routes>
     </BrowserRouter>
