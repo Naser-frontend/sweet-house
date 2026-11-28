@@ -52,7 +52,7 @@ function Navbar() {
   }
 
   return (
-    <header className="relative z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-pink-200/70 bg-pink-50/80 shadow-sm backdrop-blur-md">
       <nav className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         {/* Logo */}
         <Link
