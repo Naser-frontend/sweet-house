@@ -1,7 +1,9 @@
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Heart } from "lucide-react";
 import { useCart } from "../context/useCart";
+import { useFavorites } from "../context/FavoritesContext";
 import logo from "../assets/logo.png";
 
 const navLinkClass = ({ isActive }) =>
@@ -11,9 +13,24 @@ const navLinkClass = ({ isActive }) =>
       : "text-gray-700 hover:text-pink-500"
   }`;
 
+const actionLinkClass = ({ isActive }) =>
+  `relative inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 ${
+    isActive
+      ? "text-pink-500"
+      : "text-gray-700 hover:text-pink-500"
+  }`;
+
+const mobileActionLinkClass = ({ isActive }) =>
+  `relative flex h-10 w-10 items-center justify-center rounded-full transition ${
+    isActive
+      ? "bg-pink-50 text-pink-500"
+      : "text-gray-700 hover:bg-pink-50 hover:text-pink-500"
+  }`;
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { cartItems } = useCart();
+  const { favoriteIds } = useFavorites();
 
   const cartCount = Array.isArray(cartItems)
     ? cartItems.reduce(
@@ -21,6 +38,7 @@ function Navbar() {
         0
       )
     : 0;
+  const favoriteCount = favoriteIds.length;
 
   const links = [
     { name: "Home", path: "/" },
@@ -66,9 +84,28 @@ function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden shrink-0 items-center gap-4 md:flex">
-          <Link
+          <NavLink
+            to="/favorites"
+            aria-label={`Favorites, ${favoriteCount} items`}
+            className={actionLinkClass}
+          >
+            <Heart
+              aria-hidden="true"
+              size={20}
+              fill={favoriteCount > 0 ? "currentColor" : "none"}
+            />
+            Favorites
+
+            {favoriteCount > 0 && (
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-pink-500 px-1 text-xs font-bold text-white">
+                {favoriteCount}
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
             to="/cart"
-            className="relative inline-flex items-center gap-2 text-sm font-semibold text-gray-700 transition hover:text-pink-500"
+            className={actionLinkClass}
           >
             <svg
               aria-hidden="true"
@@ -93,7 +130,7 @@ function Navbar() {
                 {cartCount}
               </span>
             )}
-          </Link>
+          </NavLink>
 
           <Link
             to="/login"
@@ -105,10 +142,30 @@ function Navbar() {
 
         {/* Mobile Actions */}
         <div className="flex items-center gap-3 md:hidden">
-          <Link
+          <NavLink
+            to="/favorites"
+            aria-label={`Favorites, ${favoriteCount} items`}
+            onClick={closeMenu}
+            className={mobileActionLinkClass}
+          >
+            <Heart
+              aria-hidden="true"
+              size={22}
+              fill={favoriteCount > 0 ? "currentColor" : "none"}
+            />
+
+            {favoriteCount > 0 && (
+              <span className="absolute right-0 top-0 flex h-5 min-w-5 items-center justify-center rounded-full bg-pink-500 px-1 text-xs font-bold text-white">
+                {favoriteCount}
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
             to="/cart"
             aria-label={`Shopping cart, ${cartCount} items`}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 transition hover:bg-pink-50 hover:text-pink-500"
+            onClick={closeMenu}
+            className={mobileActionLinkClass}
           >
             <svg
               aria-hidden="true"
@@ -132,7 +189,7 @@ function Navbar() {
                 {cartCount}
               </span>
             )}
-          </Link>
+          </NavLink>
 
           <button
             type="button"
