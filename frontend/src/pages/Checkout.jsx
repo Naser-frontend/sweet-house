@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCart } from "../context/useCart";
 
 function Checkout() {
+  const { cartItems } = useCart();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -44,6 +46,13 @@ function Checkout() {
         ? "border-red-300 focus:border-red-400"
         : "border-pink-100 focus:border-pink-400"
     }`;
+
+  const deliveryFee = 0;
+  const subtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  const finalTotal = subtotal + deliveryFee;
 
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-[#fffafc] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
@@ -128,17 +137,61 @@ function Checkout() {
                 Order Summary
               </h2>
               <p className="mt-2 text-sm leading-6 text-gray-600">
-                Your selected sweets and total will appear here.
+                Review your selected sweets before placing the order.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-dashed border-pink-200 bg-white/70 px-5 py-14 text-center sm:px-8">
-              <p className="text-base font-bold text-[#25191d]">
-                Order summary area
-              </p>
-              <p className="mt-2 text-sm leading-6 text-gray-500">
-                Order details will be connected in the next step.
-              </p>
+            <div className="space-y-4">
+              {cartItems.length > 0 ? (
+                <div className="space-y-3">
+                  {cartItems.map((item) => (
+                    <div key={item.id} className="flex items-center gap-3 rounded-xl border border-pink-100 bg-white/80 p-3">
+                      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-pink-50">
+                        {item.image ? (
+                          <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                        ) : (
+                          <span className="flex h-full items-center justify-center text-[10px] text-pink-400">No image</span>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-bold text-[#25191d]">{item.name}</p>
+                        <p className="mt-1 text-xs text-gray-500">Qty: {item.quantity}</p>
+                      </div>
+                      <p className="shrink-0 text-sm font-bold text-pink-600">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-dashed border-pink-200 bg-white/70 px-5 py-10 text-center sm:px-8">
+                  <p className="text-base font-bold text-[#25191d]">Your cart is empty</p>
+                  <p className="mt-2 text-sm leading-6 text-gray-500">Add some sweets before placing an order.</p>
+                </div>
+              )}
+
+              <div className="rounded-2xl border border-pink-100 bg-white/80 p-4 text-sm text-gray-600">
+                <div className="flex items-center justify-between">
+                  <span>Subtotal</span>
+                  <span className="font-semibold text-[#25191d]">${subtotal.toFixed(2)}</span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <span>Delivery Fee</span>
+                  <span className="font-semibold text-green-600">Free</span>
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-pink-100 pt-4 text-base font-bold text-[#25191d]">
+                  <span>Final Total</span>
+                  <span className="text-xl text-pink-600">${finalTotal.toFixed(2)}</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                disabled={cartItems.length === 0}
+                className="inline-flex h-12 w-full items-center justify-center rounded-full bg-pink-500 px-6 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:bg-pink-500"
+              >
+                Place Order
+              </button>
             </div>
           </aside>
         </div>

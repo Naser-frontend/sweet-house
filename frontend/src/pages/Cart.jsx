@@ -148,12 +148,12 @@ function Cart() {
                 </div>
               </div>
 
-              <button
-                type="button"
-                className="mt-6 w-full rounded-full bg-pink-500 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-pink-600 hover:shadow-md"
+              <Link
+                to="/checkout"
+                className="mt-6 block w-full rounded-full bg-pink-500 px-6 py-3 text-center font-semibold text-white shadow-sm transition hover:bg-pink-600 hover:shadow-md"
               >
                 Proceed to Checkout
-              </button>
+              </Link>
               <Link
                 to="/products"
                 className="mt-4 block text-center text-sm font-semibold text-pink-500 transition hover:text-pink-600"
