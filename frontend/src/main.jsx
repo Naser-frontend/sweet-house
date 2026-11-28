@@ -5,11 +5,14 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { CartProvider } from "./context/CartContext.jsx";
+import { FavoritesProvider } from "./context/FavoritesContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
-      <App />
+      <FavoritesProvider>
+        <App />
+      </FavoritesProvider>
     </CartProvider>
   </StrictMode>
 );

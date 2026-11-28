@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { useCart } from "../context/useCart";
+import { useFavorites } from "../context/FavoritesContext";
 
 function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const { toggleFavorite, isFavorite } = useFavorites();
   const { id, name, description, price, image } = product;
+  const favorite = isFavorite(id);
 
   return (
     <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -24,10 +27,12 @@ function ProductCard({ product }) {
 
         <button
           type="button"
-          aria-label={`Add ${name} to favorites`}
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white text-pink-500 shadow-md transition hover:bg-pink-500 hover:text-white"
+          aria-label={favorite ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
+          aria-pressed={favorite}
+          onClick={() => toggleFavorite(id)}
+          className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full shadow-md transition ${favorite ? "bg-pink-500 text-white" : "bg-white text-pink-500 hover:bg-pink-500 hover:text-white"}`}
         >
-          <Heart size={18} strokeWidth={1.8} />
+          <Heart size={18} strokeWidth={1.8} fill={favorite ? "currentColor" : "none"} />
         </button>
       </div>
 
